@@ -180,7 +180,11 @@
             </div>
 
             <div class="visual-item">
-                <img src="../assets/design-system.png" alt="Дизайн-система">
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;">
+                    <img src="../assets/svoeshef/ds-colors.png" alt="Цветовая палитра" style="width: 100%; border-radius: 24px;">
+                    <img src="../assets/svoeshef/ds-components.png" alt="Компоненты" style="width: 100%; border-radius: 24px;">
+                    <img src="../assets/svoeshef/ds-buttons.png" alt="Кнопки и состояния" style="width: 100%; border-radius: 24px;">
+                </div>
                 <p class="visual-caption">
                     <span class="caption-title">Минимальная дизайн-система</span>
                     Цветовая палитра, кнопки, и карточки продуктов
@@ -196,14 +200,33 @@
             </div>
 
             <div class="visual-item">
-                <img src="../assets/dashboard-details.png" alt="Детальный анализ">
-                <p class="visual-caption">
-                    <span class="caption-title">Основные экраны</span>
-                    Календарь сезонности (два вида: список и сетка-календарь)<br>
-                    Окно анализа текущего меню ресторана<br>
-                    Окно информации о поставщиках и доступности продуктов
-                </p>
-            </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <img src="../assets/svoeshef/calendar-list.png" alt="Календарь списком" style="width: 100%; border-radius: 24px;">
+            <img src="../assets/svoeshef/calendar-grid.png" alt="Календарь сеткой" style="width: 100%; border-radius: 24px;">
+        </div>
+        <p class="visual-caption">
+            <span class="caption-title">Календарь сезонности</span>
+            Два варианта отображения: список и визуальная сетка
+        </p>
+    </div>
+
+    <!-- Анализ меню -->
+    <div class="visual-item">
+        <img src="../assets/svoeshef/menu-analysis.png" alt="Анализ меню">
+        <p class="visual-caption">
+            <span class="caption-title">Анализ текущего меню</span>
+            Окно с оценкой меню ресторана и предложениями сезонных замен
+        </p>
+    </div>
+
+    <!-- Поставщики -->
+    <div class="visual-item">
+        <img src="../assets/svoeshef/suppliers-info.png" alt="Поставщики">
+        <p class="visual-caption">
+            <span class="caption-title">Информация о поставках</span>
+            Данные о доступности продуктов, ценах и фермерах-поставщиках
+        </p>
+    </div>
             </div>
         </section>
     </main>
