@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>РСХБ.Цифра — UX-исследование — Владимир Волков</title>
+    <style>
+        body {
+            background-color: #f4f7ff;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #000;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            cursor: none; 
+        }
+
+        /* Навигация */
+        .nav-bar {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 32px 30px; 
+            position: fixed; 
+            top: 0;
+            z-index: 1000;
+            box-sizing: border-box;
+            mix-blend-mode: difference;
+        }
+
+        .nav-bar a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 400;
+            cursor: none !important;
+        }
+
+        /* Контент */
+        .case-content {
+            width: 100%;
+            max-width: 940px;
+            margin-top: 160px;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .case-hero-title {
+            font-size: clamp(60px, 10vw, 120px);
+            font-weight: 600;
+            letter-spacing: -4px;
+            margin: 0 0 60px 0;
+            line-height: 0.9;
+            text-transform: uppercase;
+        }
+
+        .case-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 100px;
+        }
+
+        .info-block {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .info-label {
+            font-size: 14px;
+            color: rgba(0, 0, 0, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-text {
+            font-size: 20px;
+            line-height: 1.3;
+            font-weight: 500;
+        }
+
+        /* Сетка визуалов */
+        .visuals {
+            display: flex;
+            flex-direction: column;
+            gap: 100px;
+            padding-bottom: 150px;
+        }
+
+        .visual-item {
+            width: 100%;
+        }
+
+        .visual-item img {
+            width: 100%;
+            border-radius: 32px;
+            display: block;
+            background-color: #fff;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .visual-caption {
+            margin-top: 24px;
+            font-size: 18px;
+            color: rgba(0, 0, 0, 0.5);
+            line-height: 1.4;
+            max-width: 700px;
+        }
+
+        .caption-title {
+            display: block;
+            color: #000;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        /* Кастомный курсор */
+        #custom-cursor {
+            position: fixed;
+            width: 20px; height: 20px;
+            background-color: #000;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: 0; left: 0;
+            transform: translate(-50%, -50%);
+            transition: width 0.4s cubic-bezier(0.23, 1, 0.32, 1), height 0.4s cubic-bezier(0.23, 1, 0.32, 1), border-radius 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            white-space: nowrap; overflow: hidden;
+        }
+
+        #cursor-text {
+            color: #fff; font-size: 15px; opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .cursor-active { height: 40px !important; border-radius: 32px !important; }
+        .cursor-active #cursor-text { opacity: 1; }
+
+        @media (max-width: 768px) {
+            .case-info { grid-template-columns: 1fr; }
+            .case-hero-title { letter-spacing: -2px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="custom-cursor"><span id="cursor-text">Перейти</span></div>
+
+    <div class="nav-bar">
+        <a href="../index.html" class="nav-target">Владимир Волков</a>
+        <a href="https://t.me/vovobla" class="nav-target">Связаться</a>
+    </div>
+
+    <main class="case-content">
+        <h1 class="case-hero-title">РСХБ.Цифра —<br>UX-исследование</h1>
+
+        <div class="case-info">
+            <div class="info-block">
+                <span class="info-label">Задача</span>
+                <p class="info-text">Выяснить, почему студенты не доходят до заполнения форм обратной связи и не замечают другие важные разделы на сайте WhiteBoard (платформа РСХБ.Цифра).</p>
+            </div>
+            <div class="info-block">
+                <span class="info-label">Роль</span>
+                <p class="info-text">UX-исследование • CJM • Анализ конкурентов • Формулирование гипотез • Рекомендации</p>
+            </div>
+            <div class="info-block">
+                <span class="info-label">Год</span>
+                <p class="info-text">2026</p>
+            </div>
+            <div class="info-block">
+                <span class="info-label">Продукт</span>
+                <p class="info-text">WhiteBoard — образовательная платформа РСХБ.Цифра</p>
+            </div>
+        </div>
+
+        <section class="visuals">
+            <!-- Методология -->
+            <div class="visual-item">
+                <img src="../assets/rsxb/research-methodology.png" alt="Методология исследования">
+                <p class="visual-caption">
+                    <span class="caption-title">Методология</span>
+                    Глубинные интервью со студентами, анализ поведения на сайте, построение Customer Journey Map
+                </p>
+            </div>
+
+            <!-- Pain Points -->
+            <div class="visual-item">
+                <img src="../assets/rsxb/pain-points.png" alt="Болевые точки">
+                <p class="visual-caption">
+                    <span class="caption-title">Болевые точки</span>
+                    Основные барьеры и причины оттока студентов при взаимодействии с формами обратной связи
+                </p>
+            </div>
+
+            <!-- CJM -->
+            <div class="visual-item">
+                <img src="../assets/rsxb/cjm.png" alt="CJM">
+                <p class="visual-caption">
+                    <span class="caption-title">Customer Journey Map</span>
+                    Полная карта пути студента по платформе с выделением проблемных зон
+                </p>
+            </div>
+
+            <!-- Анализ конкурентов -->
+            <div class="visual-item">
+                <img src="../assets/rsxb/competitors.png" alt="Анализ конкурентов">
+                <p class="visual-caption">
+                    <span class="caption-title">Анализ конкурентов</span>
+                    Сравнение с лучшими образовательными платформами по удобству сбора обратной связи
+                </p>
+            </div>
+
+            <!-- Гипотезы и решения -->
+            <div class="visual-item">
+                <img src="../assets/rsxb/hypotheses.png" alt="Гипотезы и решения">
+                <p class="visual-caption">
+                    <span class="caption-title">Гипотезы и рекомендации</span>
+                    Ключевые insights + конкретные предложения по улучшению интерфейса и user experience
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const cursor = document.getElementById('custom-cursor');
+        const cursorText = document.getElementById('cursor-text');
+        const navTargets = document.querySelectorAll('.nav-target');
+
+        let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX; mouseY = e.clientY;
+        });
+
+        function animate() {
+            cursorX += (mouseX - cursorX) * 0.15;
+            cursorY += (mouseY - cursorY) * 0.15;
+            cursor.style.transform = `translate(${cursorX}px, ${cursorY}px) translate(-50%, -50%)`;
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        navTargets.forEach(t => {
+            t.addEventListener('mouseenter', () => {
+                cursorText.textContent = "Перейти";
+                cursor.style.width = "100px";
+                cursor.classList.add('cursor-active');
+            });
+            t.addEventListener('mouseleave', () => {
+                cursor.classList.remove('cursor-active');
+                cursor.style.width = "20px";
+            });
+        });
+    </script>
+</body>
+</html>
