@@ -275,5 +275,66 @@
             });
         });
     </script>
+
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
+    const block = document.querySelectorAll(".visual-item")[3]; // блок с конкурентами
+
+    const container = block.querySelector("div");
+    const images = [...container.querySelectorAll("img")];
+
+    let current = 0;
+
+    // Стили контейнера
+    container.style.display = "flex";
+    container.style.overflow = "hidden";
+    container.style.transition = "transform .6s ease";
+
+    images.forEach(img => {
+        img.style.minWidth = "100%";
+        img.style.flexShrink = "0";
+    });
+
+    // Обертка
+    const wrapper = document.createElement("div");
+    wrapper.style.overflow = "hidden";
+    wrapper.style.borderRadius = "24px";
+
+    container.parentNode.insertBefore(wrapper, container);
+    wrapper.appendChild(container);
+
+    function update() {
+        container.style.transform = `translateX(-${current * 100}%)`;
+    }
+
+    function next() {
+        current = (current + 1) % images.length;
+        update();
+    }
+
+    function prev() {
+        current = (current - 1 + images.length) % images.length;
+        update();
+    }
+
+    // Автопрокрутка
+    let timer = setInterval(next, 3000);
+
+    wrapper.addEventListener("mouseenter", () => clearInterval(timer));
+    wrapper.addEventListener("mouseleave", () => {
+        timer = setInterval(next, 3000);
+    });
+
+    // Клик по половинам
+    wrapper.addEventListener("click", e => {
+        const rect = wrapper.getBoundingClientRect();
+        if (e.clientX > rect.left + rect.width / 2) {
+            next();
+        } else {
+            prev();
+        }
+    });
+});
+</script>
 </body>
 </html>
